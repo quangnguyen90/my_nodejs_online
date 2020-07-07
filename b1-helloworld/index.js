@@ -1,9 +1,16 @@
 const express = require('express')
 const app = express()
+var bodyParser = require('body-parser');
 const port = 3000
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 var users = [
     { id: 1, name: 'Nguyen' },
@@ -19,6 +26,7 @@ app.get('/', function (req, res) {
     });
 });
 
+// USER
 app.get('/users', function (req, res) {
     res.render('users/index', {
         users: users
@@ -36,6 +44,16 @@ app.get('/users/search', function (req, res) {
     res.render('users/index', {
         users: matchUsers
     });
+});
+
+app.get('/users/create', function (req, res) {
+    res.render('users/create');
+});
+
+app.post('/users/create', function (req, res) {
+    //console.log(req.body);
+    users.push(req.body);
+    res.redirect('/users');
 });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
