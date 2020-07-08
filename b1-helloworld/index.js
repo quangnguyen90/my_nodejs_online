@@ -1,8 +1,20 @@
 const express = require('express')
 const app = express()
+// Integrate DB using lowdb for demo
 var bodyParser = require('body-parser');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+
+const adapter = new FileSync('db.json');
+const db = low(adapter);
+
+// Set some defaults (required if your JSON file is empty)
+db.defaults({ users: [] })
+  .write()
+
 const port = 3000
 
+// Setting view engine with Pug
 app.set('view engine', 'pug');
 app.set('views', './views');
 
@@ -12,27 +24,24 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-var users = [
-    { id: 1, name: 'Nguyen' },
-    { id: 2, name: 'Phu' },
-    { id: 3, name: 'Quang' }
-]
+// Get user from 'db.json' - table 'users'
+var users = db.get('users').value();
 
+// HOME PAGE
 app.get('/', function (req, res) {
     // param1: path to pug template file: index.pug
     // param2: variable for HTML is object include key-value
     res.render('index', {
-        name: 'AAA'
+        name: 'Home Page'
     });
 });
 
-// USER
+// USER CRUD
 app.get('/users', function (req, res) {
     res.render('users/index', {
         users: users
     });
 });
-
 
 app.get('/users/search', function (req, res) {
     //console.log(req.query);
@@ -52,7 +61,7 @@ app.get('/users/create', function (req, res) {
 
 app.post('/users/create', function (req, res) {
     //console.log(req.body);
-    users.push(req.body);
+    db.get('users').push(req.body).write();
     res.redirect('/users');
 });
 
