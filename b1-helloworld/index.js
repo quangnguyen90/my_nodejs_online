@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
-// Integrate DB using lowdb for demo
+// Use bodyParser to get query params as object with key-value
 var bodyParser = require('body-parser');
+// To generate unique id
+const shortid = require('shortid');
+// Integrate DB using lowdb for demo
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
@@ -55,12 +58,22 @@ app.get('/users/search', function (req, res) {
     });
 });
 
+app.get('/user/:id', function(req, res) {
+    const id = req.params.id;
+    //console.log(typeof id);
+    const user = db.get('users').find({ id: id }).value();
+    res.render('users/view', {
+        user: user
+    });
+});
+
 app.get('/users/create', function (req, res) {
     res.render('users/create');
 });
 
 app.post('/users/create', function (req, res) {
     //console.log(req.body);
+    req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('/users');
 });
