@@ -27,6 +27,8 @@ module.exports.search = function (req, res) {
 
 // Create Controller
 module.exports.create = function (req, res) {
+    // Test: Get cookie data
+    console.log(req.cookies);
     res.render('users/create');
 }
 

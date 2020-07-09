@@ -1,6 +1,8 @@
 const express = require('express')
 // Use bodyParser to get query params as object with key-value
 const bodyParser = require('body-parser');
+// Use cookiParser to get cookie data
+const cookieParser = require('cookie-parser');
 // Import user route (file user.route.js)
 const userRoute = require('./routes/user.route');
 
@@ -16,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+// Use cookieParser
+app.use(cookieParser());
 
 // Get static files in folder "public"
 app.use(express.static('public'));
