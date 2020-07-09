@@ -1,7 +1,7 @@
 const express = require('express')
 // Use bodyParser to get query params as object with key-value
 const bodyParser = require('body-parser');
-// Import user route
+// Import user route (file user.route.js)
 const userRoute = require('./routes/user.route');
 
 const port = 3000

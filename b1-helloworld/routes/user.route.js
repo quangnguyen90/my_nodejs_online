@@ -1,7 +1,7 @@
 const express = require('express');
 // To generate unique id
 const shortid = require('shortid');
-// Required db
+// Required db (file db.js)
 const db = require('../db');
 
 const router = express.Router();
@@ -16,17 +16,21 @@ router.get('/', function (req, res) {
     });
 });
 
-// router.get('/search', function (req, res) {
-//     //console.log(req.query);
-//     var q = req.query.q;
-//     var matchUsers = users.filter(function (user) {
-//         return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-//     });
+router.get('/search', function (req, res) {
+    //console.log(req.query);
+    var q = req.query.q;
+    var matchUsers = users.filter(function (user) {
+        return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+    });
 
-//     res.render('users/index', {
-//         users: matchUsers
-//     });
-// });
+    res.render('users/index', {
+        users: matchUsers
+    });
+});
+
+router.get('/create', function (req, res) {
+    res.render('users/create');
+});
 
 router.get('/:id', function (req, res) {
     const id = req.params.id;
@@ -35,12 +39,6 @@ router.get('/:id', function (req, res) {
     res.render('users/view', {
         user: user
     });
-});
-
-
-
-router.get('/create', function (req, res) {
-    res.render('users/create');
 });
 
 router.post('/create', function (req, res) {
