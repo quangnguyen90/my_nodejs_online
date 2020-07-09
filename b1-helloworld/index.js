@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
 
+// Get static files in folder "public"
+app.use(express.static('public'));
+
 // HOME PAGE
 app.get('/', function (req, res) {
     // param1: path to pug template file: index.pug
