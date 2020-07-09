@@ -1,52 +1,19 @@
 const express = require('express');
-// To generate unique id
-const shortid = require('shortid');
-// Required db (file db.js)
-const db = require('../db');
+// Required controller (file: user.controller.js)
+const controller = require('../controllers/user.controller');
 
 const router = express.Router();
 
-// Get user from 'db.json' - table 'users'
-const users = db.get('users').value();
-
 // USER CRUD
-router.get('/', function (req, res) {
-    res.render('users/index', {
-        users: users
-    });
-});
+router.get('/', controller.index);
 
-router.get('/search', function (req, res) {
-    //console.log(req.query);
-    var q = req.query.q;
-    var matchUsers = users.filter(function (user) {
-        return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    });
+router.get('/search', controller.search);
 
-    res.render('users/index', {
-        users: matchUsers
-    });
-});
+router.get('/create', controller.create);
 
-router.get('/create', function (req, res) {
-    res.render('users/create');
-});
+router.get('/:id', controller.get);
 
-router.get('/:id', function (req, res) {
-    const id = req.params.id;
-    //console.log(typeof id);
-    const user = db.get('users').find({ id: id }).value();
-    res.render('users/view', {
-        user: user
-    });
-});
-
-router.post('/create', function (req, res) {
-    //console.log(req.body);
-    req.body.id = shortid.generate();
-    db.get('users').push(req.body).write();
-    res.redirect('/users');
-});
+router.post('/create', controller.postCreate);
 
 module.exports = router;
 
