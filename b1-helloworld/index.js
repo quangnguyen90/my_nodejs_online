@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
     // param1: path to pug template file: index.pug
     // param2: variable for HTML is object include key-value
     res.render('index', {
-        name: 'Home Page'
+        name: 'NodeJs'
     });
 });
 
