@@ -1,34 +1,21 @@
 const express = require('express')
-const app = express()
 // Use bodyParser to get query params as object with key-value
-var bodyParser = require('body-parser');
-// To generate unique id
-const shortid = require('shortid');
-// Integrate DB using lowdb for demo
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-
-const adapter = new FileSync('db.json');
-const db = low(adapter);
-
-// Set some defaults (required if your JSON file is empty)
-db.defaults({ users: [] })
-  .write()
+const bodyParser = require('body-parser');
+// Import user route
+const userRoute = require('./routes/user.route');
 
 const port = 3000
 
+const app = express();
 // Setting view engine with Pug
 app.set('view engine', 'pug');
 app.set('views', './views');
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
-
-// Get user from 'db.json' - table 'users'
-var users = db.get('users').value();
 
 // HOME PAGE
 app.get('/', function (req, res) {
@@ -39,43 +26,7 @@ app.get('/', function (req, res) {
     });
 });
 
-// USER CRUD
-app.get('/users', function (req, res) {
-    res.render('users/index', {
-        users: users
-    });
-});
-
-app.get('/users/search', function (req, res) {
-    //console.log(req.query);
-    var q = req.query.q;
-    var matchUsers = users.filter(function (user) {
-        return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    });
-
-    res.render('users/index', {
-        users: matchUsers
-    });
-});
-
-app.get('/user/:id', function(req, res) {
-    const id = req.params.id;
-    //console.log(typeof id);
-    const user = db.get('users').find({ id: id }).value();
-    res.render('users/view', {
-        user: user
-    });
-});
-
-app.get('/users/create', function (req, res) {
-    res.render('users/create');
-});
-
-app.post('/users/create', function (req, res) {
-    //console.log(req.body);
-    req.body.id = shortid.generate();
-    db.get('users').push(req.body).write();
-    res.redirect('/users');
-});
+// USER ROUTE
+app.use('/users', userRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
