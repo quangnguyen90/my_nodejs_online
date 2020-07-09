@@ -1,6 +1,9 @@
 const express = require('express');
-// Required controller (file: user.controller.js)
+// Require controller (file: user.controller.js)
 const controller = require('../controllers/user.controller');
+
+// Require middleware (file: user.validate.js)
+const validate = require('../validate/user.validate');
 
 const router = express.Router();
 
@@ -13,9 +16,6 @@ router.get('/create', controller.create);
 
 router.get('/:id', controller.get);
 
-router.post('/create', controller.postCreate);
+router.post('/create', validate.postCreate, controller.postCreate);
 
 module.exports = router;
-
-
-
