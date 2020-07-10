@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Use cookieParser
-app.use(cookieParser());
+app.use(cookieParser('random_string_here'));
 
 // Get static files in folder "public"
 app.use(express.static('public'));
