@@ -1,3 +1,5 @@
+// Require env
+require('dotenv').config();
 const express = require('express')
 // Use bodyParser to get query params as object with key-value
 const bodyParser = require('body-parser');
@@ -24,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Use cookieParser
-app.use(cookieParser('random_string_here'));
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 // Get static files in folder "public"
 app.use(express.static('public'));
