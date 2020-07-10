@@ -1,10 +1,14 @@
 const express = require('express')
 // Use bodyParser to get query params as object with key-value
 const bodyParser = require('body-parser');
-// Use cookiParser to get cookie data
+// Use cookieParser to get cookie data
 const cookieParser = require('cookie-parser');
 // Import user route (file user.route.js)
 const userRoute = require('./routes/user.route');
+// Import auth route (file auth.route.js)
+const authRoute = require('./routes/auth.route');
+// Require auth middleware (file: auth.middleware.js)
+const authMiddleware = require('./middlewares/auth.middleware');
 
 const port = 3000
 
@@ -35,6 +39,9 @@ app.get('/', function (req, res) {
 });
 
 // USER ROUTE
-app.use('/users', userRoute);
+app.use('/users', authMiddleware.requireAuth, userRoute);
+
+// AUTH ROUTE
+app.use('/auth', authRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

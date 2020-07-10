@@ -10,7 +10,7 @@
     },
     {
       "name": "Quang",
-      "id": "ndrHgds2d"
+      "id": "ndrHgds2d",
     },
     {
       "name": "Nguyen",
@@ -65,7 +65,9 @@
     {
       "name": "Colgate",
       "phone": "0987654321",
-      "id": "7Va0pOqLR"
+      "id": "7Va0pOqLR",
+      "email": "test@gmail.com",
+      "password": "123456"
     }
   ]
 }
