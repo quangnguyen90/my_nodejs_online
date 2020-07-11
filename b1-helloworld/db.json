@@ -468,5 +468,15 @@
       "description": "eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut",
       "price": 51
     }
+  ],
+  "sessions": [
+    {
+      "id": "JEHZzC-VJ",
+      "cart": {
+        "abc120": 2,
+        "abc121": 1,
+        "abc123": 1
+      }
+    }
   ]
 }

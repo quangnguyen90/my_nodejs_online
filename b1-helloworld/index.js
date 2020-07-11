@@ -11,8 +11,13 @@ const userRoute = require('./routes/user.route');
 const productRoute = require('./routes/product.route');
 // Import auth route (file auth.route.js)
 const authRoute = require('./routes/auth.route');
+// Import cart route (file cart.route.js)
+const cartRoute = require('./routes/cart.route');
+
 // Require auth middleware (file: auth.middleware.js)
 const authMiddleware = require('./middlewares/auth.middleware');
+// Require session middleware (file: session.middlware.js)
+const sessionMiddlware = require('./middlewares/session.middleware');
 
 const port = 3000
 
@@ -29,6 +34,9 @@ app.use(bodyParser.json())
 
 // Use cookieParser
 app.use(cookieParser(process.env.SESSION_SECRET));
+
+// Use session middleware for all route
+app.use(sessionMiddlware);
 
 // Get static files in folder "public"
 app.use(express.static('public'));
@@ -49,6 +57,9 @@ app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 
 // PRODUCT ROUTE
-app.use('/products', authMiddleware.requireAuth, productRoute);
+app.use('/products', productRoute);
+
+// CART ROUTE
+app.use('/cart', cartRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
