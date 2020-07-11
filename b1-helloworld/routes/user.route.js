@@ -1,9 +1,15 @@
 const express = require('express');
+// Require middlware "multer" to validata form-data
+const multer = require('multer');
+
 // Require controller (file: user.controller.js)
 const controller = require('../controllers/user.controller');
 
 // Require middleware (file: user.validate.js)
 const validate = require('../validate/user.validate');
+
+// Define folder to store file upload
+const upload = multer({ dest: './public/uploads/' });
 
 const router = express.Router();
 
@@ -22,6 +28,10 @@ router.get('/create', controller.create);
 
 router.get('/:id', controller.get);
 
-router.post('/create', validate.postCreate, controller.postCreate);
+router.post('/create',
+    upload.single('avatar'),
+    validate.postCreate,
+    controller.postCreate
+);
 
 module.exports = router;

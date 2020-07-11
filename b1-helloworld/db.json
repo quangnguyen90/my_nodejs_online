@@ -2,72 +2,147 @@
   "users": [
     {
       "name": "Nguyen",
-      "id": "FLtpHfRoE"
+      "phone": "0987654321",
+      "id": "FLtpHfRoE",
+      "email": "nguyen1@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Phu",
-      "id": "N6gcGrhNt"
+      "phone": "0987654321",
+      "id": "N6gcGrhNt",
+      "email": "phu@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Quang",
-      "id": "ndrHgds2d"
+      "phone": "0987654321",
+      "id": "ndrHgds2d",
+      "email": "quang@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Nguyen",
-      "id": "1b01iFvij"
+      "phone": "0987654321",
+      "id": "1b01iFvij",
+      "email": "nguyen2@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Ngoc",
-      "id": "f_AtMRRt3"
+      "phone": "0987654321",
+      "id": "f_AtMRRt3",
+      "email": "ngoc@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Hoang",
-      "id": "IDat336Iq"
+      "phone": "0987654321",
+      "id": "IDat336Iq",
+      "email": "hoang@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "An",
-      "id": "hOCC25LBT"
+      "phone": "0987654321",
+      "id": "hOCC25LBT",
+      "email": "an@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "I Love You",
-      "id": "eP5BUKr70"
+      "phone": "0987654321",
+      "id": "eP5BUKr70",
+      "email": "you@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "So much",
-      "id": "g2XZX9P-4"
+      "phone": "0987654321",
+      "id": "g2XZX9P-4",
+      "email": "much@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Will you marry me ?",
-      "id": "RDm3tDX_d"
+      "phone": "0987654321",
+      "id": "RDm3tDX_d",
+      "email": "marry@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Yes, I will",
-      "id": "rrBoiH6wK"
+      "phone": "0987654321",
+      "id": "rrBoiH6wK",
+      "email": "yes@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Now, you are wife & husband",
-      "id": "Ai1HxdPoi"
+      "phone": "0987654321",
+      "id": "Ai1HxdPoi",
+      "email": "now@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Love you til the end of life",
-      "id": "646e98i1V"
+      "phone": "0987654321",
+      "id": "646e98i1V",
+      "email": "love@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Omo",
       "phone": "012345679",
-      "id": "sDKDKINLi"
+      "id": "sDKDKINLi",
+      "email": "Omo@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Tide",
       "phone": "0987654321",
-      "id": "NsDE05RoK"
+      "id": "NsDE05RoK",
+      "email": "tide@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
     },
     {
       "name": "Colgate",
       "phone": "0987654321",
       "id": "7Va0pOqLR",
       "email": "test@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e"
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
+    },
+    {
+      "name": "php",
+      "phone": "0987654321",
+      "email": "php@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "id": "w8TSdPcm2",
+      "avatar": "uploads\\baba44dbcb3c4c269a55af03787f4af0"
+    },
+    {
+      "name": "nodejs",
+      "phone": "0987654321",
+      "email": "nodejs@gmail.com",
+      "password": "a3590023df66ac92ae35e3316026d17d",
+      "id": "JBbKpEg6u",
+      "avatar": "uploads\\1f4bc396977636d3521226dab6487c92"
     }
   ],
   "products": [

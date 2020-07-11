@@ -2,6 +2,8 @@
 const db = require('../db');
 // To generate unique id
 const shortid = require('shortid');
+// Required md5 hash
+const md5 = require('md5');
 // Get user from 'db.json' - table 'users'
 const users = db.get('users').value();
 
@@ -47,6 +49,9 @@ module.exports.postCreate = function (req, res) {
     //console.log(req.body);
     console.log(res.locals);
     req.body.id = shortid.generate();
+    req.body.password = md5(req.body.password);
+    //req.body.avatar = req.file.path.split("/").slice(1).join("/");
+    req.body.avatar = req.file.path.split("\\").slice(1).join("\\");
 
     db.get('users').push(req.body).write();
     res.redirect('/users');
