@@ -6,7 +6,7 @@ const products = db.get('products').value();
 // Index controller
 module.exports.index = function (req, res) {
     var page = parseInt(req.query.page) || 1; // page n
-    var perPage = 8; // x item each page
+    var perPage = 12; // x item each page
     var start = (page - 1) * perPage;
     var end = page * perPage;
 
