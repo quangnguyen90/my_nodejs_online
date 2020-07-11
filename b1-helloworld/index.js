@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 // Import user route (file user.route.js)
 const userRoute = require('./routes/user.route');
+// Import product route (file product.route.js)
+const productRoute = require('./routes/product.route');
 // Import auth route (file auth.route.js)
 const authRoute = require('./routes/auth.route');
 // Require auth middleware (file: auth.middleware.js)
@@ -45,5 +47,8 @@ app.use('/users', authMiddleware.requireAuth, userRoute);
 
 // AUTH ROUTE
 app.use('/auth', authRoute);
+
+// PRODUCT ROUTE
+app.use('/products', authMiddleware.requireAuth, productRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
