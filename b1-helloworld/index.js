@@ -20,6 +20,8 @@ const authRoute = require('./routes/auth.route');
 const cartRoute = require('./routes/cart.route');
 // Import transfer route (file transfer.route.js)
 const transferRoute = require('./routes/transfer.route');
+// Import transfer route (file api/routes/product.route.js)
+const apiProductRoute = require('./api/routes/product.route');
 
 // Require auth middleware (file: auth.middleware.js)
 const authMiddleware = require('./middlewares/auth.middleware');
@@ -74,5 +76,8 @@ app.use('/cart', cartRoute);
 
 // TRANSFER ROUTE
 app.use('/transfer', authMiddleware.requireAuth, transferRoute);
+
+// API PRODUCT ROUTE
+app.use('/api/products', apiProductRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
