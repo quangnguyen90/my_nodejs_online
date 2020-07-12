@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 // Require CSURF Middleware
 const csurf = require('csurf');
+// Required mongoose
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL);
 // Import user route (file user.route.js)
 const userRoute = require('./routes/user.route');
 // Import product route (file product.route.js)
