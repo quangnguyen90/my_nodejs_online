@@ -6,7 +6,7 @@ const products = db.get('products').value();
 const Product = require('../models/product.model');
 
 // Index controller
-module.exports.index = async function (req, res) {
+module.exports.index = async function (req, res, next) {
     // var page = parseInt(req.query.page) || 1; // page n
     // var perPage = 12; // x item each page
     // var start = (page - 1) * perPage;
@@ -22,11 +22,14 @@ module.exports.index = async function (req, res) {
     //     // case 2: do by self
     //     products: products.slice(start, end)
     // });
-    const products = await Product.find();
-    res.render('products/index', {
-        products: products
-    });
-
+    try {
+        const products = await Product.find();
+        res.render('products/index', {
+            products: products
+        });
+    } catch (error) {
+        next(error);
+    }
 };
 
 // Search cntroller
