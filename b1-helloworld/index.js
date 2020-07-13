@@ -41,6 +41,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
 
+// API PRODUCT ROUTE
+app.use('/api/products', apiProductRoute);
+
 // Use cookieParser
 app.use(cookieParser(process.env.SESSION_SECRET));
 
@@ -48,7 +51,7 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionMiddlware);
 
 // setup csrf middlewares
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true }));
 
 // Get static files in folder "public"
 app.use(express.static('public'));
@@ -76,8 +79,5 @@ app.use('/cart', cartRoute);
 
 // TRANSFER ROUTE
 app.use('/transfer', authMiddleware.requireAuth, transferRoute);
-
-// API PRODUCT ROUTE
-app.use('/api/products', apiProductRoute);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
