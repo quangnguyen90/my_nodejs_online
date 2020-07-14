@@ -28,7 +28,7 @@ const authMiddleware = require('./middlewares/auth.middleware');
 // Require session middleware (file: session.middlware.js)
 const sessionMiddlware = require('./middlewares/session.middleware');
 
-const port = 3000
+const port = process.env.PORT || 3000;
 
 const app = express();
 // Setting view engine with Pug
