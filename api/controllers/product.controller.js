@@ -1,6 +1,5 @@
 // Require model product (file: product.model.js)
 const Product = require('../../models/product.model');
-const { json } = require('body-parser');
 
 // Index controller
 module.exports.index = async function (req, res) {
