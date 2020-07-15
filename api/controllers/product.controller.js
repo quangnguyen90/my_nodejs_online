@@ -11,5 +11,5 @@ module.exports.index = async function (req, res) {
 // Create controller
 module.exports.create = async function (req, res) {
     const product = await Product.create(req.body);
-    return json(product);
+    res.json(product);
 };
